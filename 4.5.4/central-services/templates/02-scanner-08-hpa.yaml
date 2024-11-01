@@ -13,6 +13,10 @@ metadata:
   annotations:
     {{- include "srox.annotations" (list . "horizontalpodautoscaler" "scanner") | nindent 4 }}
 spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: scanner
   minReplicas: {{ ._rox.scanner.autoscaling.minReplicas }}
   maxReplicas: {{ ._rox.scanner.autoscaling.maxReplicas }}
   metrics:
