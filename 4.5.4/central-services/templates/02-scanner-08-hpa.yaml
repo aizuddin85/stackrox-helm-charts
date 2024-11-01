@@ -3,7 +3,7 @@
 {{- if not ._rox.scanner.disable -}}
 
 {{- if not ._rox.scanner.autoscaling.disable -}}
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: scanner
