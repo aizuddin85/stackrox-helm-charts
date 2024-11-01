@@ -55,10 +55,10 @@
 #  useFromDefaultServiceAccount: true
 #
 ## Common settings for all image properties
-#image:
+image:
 #  # The image registry to use. Unless overridden in the more specific configs, this
 #  # determines the base registry for each image referenced in this config file.
-#  registry: quay.io/stackrox-io
+  registry: quay.io/stackrox-io
 #
 ## Settings regarding the installation environment
 #env:
