@@ -37,4 +37,4 @@ subjects:
 - kind: ServiceAccount
   name: scanner-v4
   namespace: {{ .Release.Namespace }}
-
+{{- end }}
