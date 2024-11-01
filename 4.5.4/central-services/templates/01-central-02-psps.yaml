@@ -37,3 +37,4 @@ subjects:
     name: central
     namespace: {{.Release.Namespace}}
 
+{{- end }}
