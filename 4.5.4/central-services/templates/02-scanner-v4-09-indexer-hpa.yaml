@@ -1,6 +1,6 @@
 {{- include "srox.init" . -}}
 {{- if and ._rox.scannerV4._indexerEnabled (not ._rox.scannerV4.indexer.autoscaling.disable) }}
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: scanner-v4-indexer
