@@ -38,35 +38,3 @@ subjects:
   name: scanner-v4
   namespace: {{ .Release.Namespace }}
 
----
-
-apiVersion: policy/v1beta1
-kind: PodSecurityPolicy
-metadata:
-  name: {{ include "srox.globalResourceName" (list . "stackrox-scanner-v4") }}
-  labels:
-    {{- include "srox.labels" (list . "podsecuritypolicy" "stackrox-scanner-v4") | nindent 4 }}
-  annotations:
-    {{- include "srox.annotations" (list . "podsecuritypolicy" "stackrox-scanner-v4") | nindent 4 }}
-spec:
-  privileged: false
-  allowPrivilegeEscalation: false
-  volumes:
-  - 'configMap'
-  - 'emptyDir'
-  - 'projected'
-  - 'secret'
-  - 'downwardAPI'
-  - 'persistentVolumeClaim'
-  hostNetwork: false
-  hostIPC: false
-  hostPID: false
-  runAsUser:
-    rule: 'RunAsAny'
-  seLinux:
-    rule: 'RunAsAny'
-  supplementalGroups:
-    rule: 'RunAsAny'
-  fsGroup:
-    rule: 'RunAsAny'
-{{- end }}
