@@ -15,11 +15,13 @@ metadata:
 spec:
   minReplicas: {{ ._rox.scanner.autoscaling.minReplicas }}
   maxReplicas: {{ ._rox.scanner.autoscaling.maxReplicas }}
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: scanner
-  targetCPUUtilizationPercentage: 150
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 150
 {{ end -}}
 
 {{ end -}}
